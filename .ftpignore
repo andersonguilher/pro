@@ -1,5 +1,6 @@
+# .ftpignore
 .git*
-node_modules/
 .github/
+node_modules/
 README.md
 *.Zone.Identifier
