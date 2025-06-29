@@ -1,0 +1,6 @@
+Array
+(
+    [usuario] => admn
+    [senha] => 123456
+)
+Usuário não encontrado

@@ -1,0 +1,6 @@
+Array
+(
+    [usuario] => admin
+    [senha] => 123456
+)
+Senha no banco: $2y$10$HxegaEzoQ3yIxY/T0DicWeCkQym95zqUWgHsrbFPwuW4qQI7wy9ve

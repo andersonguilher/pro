@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icons/icon-192.png" />
+  <title>Fiscaliza - Login</title>
+  <script defer src="js/login.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-white min-h-screen flex items-center justify-center">
+
+  <main class="w-full max-w-sm p-6 bg-slate-800 rounded-2xl shadow-lg">
+    <div class="text-center mb-6">
+      <img src="assets/icons/icon-192.png" alt="Logo Fiscaliza" class="w-20 h-20 mx-auto rounded-xl">
+      <h1 class="text-2xl font-bold mt-4">Fiscaliza 23ª GC</h1>
+      <p class="text-slate-300 text-sm">Prefeitura do Rio de Janeiro</p>
+    </div>
+
+    <form id="loginForm" class="space-y-4">
+      <div>
+        <label for="usuario" class="block text-sm font-medium text-white">Usuário</label>
+        <input type="text" id="usuario" name="usuario" required autofocus
+          class="mt-1 w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+      </div>
+
+      <div>
+        <label for="senha" class="block text-sm font-medium text-white">Senha</label>
+        <input type="password" id="senha" name="senha" required
+          class="mt-1 w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+      </div>
+
+      <button type="submit"
+        class="w-full bg-cyan-600 hover:bg-cyan-700 transition-colors px-4 py-2 rounded-lg font-bold text-white">
+        Entrar
+      </button>
+
+      <p id="erroLogin" class="text-red-400 text-sm text-center hidden">Usuário ou senha inválidos.</p>
+    </form>
+  </main>
+
+</body>
+</html>

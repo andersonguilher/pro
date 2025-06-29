@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Usuários</title>
+  <link rel="manifest" href="../manifest.json" />
+  <link rel="icon" href="../assets/icons/icon-192.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-white min-h-screen flex items-center justify-center px-4">
+
+  <main class="bg-slate-800 p-6 rounded-2xl w-full max-w-md shadow-lg">
+    <h1 class="text-2xl font-bold mb-4 text-center">Cadastro de Usuários</h1>
+
+    <form action="../php/cadastrar_usuario.php" method="POST" class="space-y-4">
+      <div>
+        <label class="block text-sm mb-1">Usuário</label>
+        <input type="text" name="usuario" required
+          class="w-full bg-slate-700 p-2 rounded-lg border border-slate-600" />
+      </div>
+
+      <div>
+        <label class="block text-sm mb-1">Senha</label>
+        <input type="password" name="senha" required
+          class="w-full bg-slate-700 p-2 rounded-lg border border-slate-600" />
+      </div>
+
+      <button type="submit"
+        class="w-full bg-green-600 hover:bg-green-700 transition py-3 rounded-lg font-bold">
+        Cadastrar
+      </button>
+    </form>
+
+    <p class="mt-4 text-xs text-center text-slate-400">Somente para administradores</p>
+  </main>
+<script>
+  fetch("../php/verificar_login.php")
+    .then(res => res.json())
+    .then(d => {
+      if (!d.logado) window.location.href = "../index.html";
+    });
+</script>
+
+</body>
+</html>
