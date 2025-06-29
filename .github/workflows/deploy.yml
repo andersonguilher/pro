@@ -3,7 +3,8 @@ name: Deploy via FTP
 on:
   push:
     branches:
-      - main  # Altere se a branch principal tiver outro nome
+      - main
+      - andersonguilherm
 
 jobs:
   ftp-deploy:
@@ -14,31 +15,15 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v3
 
-      - name: Instalar dependências Node (opcional, se usar build)
-        if: false  # Altere para 'true' se for um projeto com build
-        run: |
-          npm install
-          npm run build
-
-      - name: Criar arquivo .ftpignore (para evitar envio de lixo)
-        run: |
-          echo ".git*" >> .ftpignore
-          echo "node_modules" >> .ftpignore
-          echo ".github" >> .ftpignore
-          echo "README.md" >> .ftpignore
-
       - name: Enviar arquivos via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_23GC }}
           username: ${{ secrets.FTP_23GC_USERNAME }}
           password: ${{ secrets.FTP_23GC_PASSWORD }}
-          server-dir: pro/  # <-- aqui está a nova pasta no servidor
+          server-dir: pro/
           protocol: ftp
           exclude: |
             .ftpignore
-            .git*
-            **/.git*
-            node_modules
-            .github
-            README.md
+          dry-run: false
+          dangerous-clean-slate: false
