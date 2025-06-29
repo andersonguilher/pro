@@ -1,0 +1,22 @@
+name: Deploy via FTP
+
+on:
+  push:
+    branches:
+      - main   # Altere se sua branch for outra
+
+jobs:
+  ftp-deploy:
+    name: Deploy do site via FTP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
+
+      - name: Enviar arquivos via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_23GC }}
+          username: ${{ secrets.FTP_23GC_USERNAME }}
+          password: ${{ secrets.FTP_23GC_PASSWORD }}
+          server-dir: pro/
