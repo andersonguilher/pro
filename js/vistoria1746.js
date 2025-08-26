@@ -380,6 +380,10 @@ setTimeout(() => {
     if (!mapDiv || mapDiv.offsetHeight === 0)
       return setTimeout(() => inicializarMapaComPrioridade(chamado), 200);
 
+    // *** CORREÇÃO: Redefine as variáveis de controle do mapa ***
+    seguir = true;
+    mapaInteragido = false;
+
     mapa = L.map(mapDiv).setView([-22.9307, -43.6815], 15);
 
     mapa.on('dragstart zoomstart', () => {
@@ -647,6 +651,8 @@ setTimeout(() => {
 
     if (seguir && !mapaInteragido) {
       mapa.flyTo(latlng, mapa.getZoom(), { animate: true, duration: 1 });
+      // *** CORREÇÃO: Para de seguir após a primeira centralização ***
+      seguir = false;
     }
 
     if (marcador && marcadorUsuario && !atualizarPosicaoUsuario._ajustou) {
