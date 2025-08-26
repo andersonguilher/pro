@@ -1,0 +1,52 @@
+# ==== Segredos / variáveis de ambiente ====
+.env
+.env.*
+!.env.example
+/public/pro/.env
+/public/pro/*.env
+
+# ==== Logs, caches, uploads (mantém a pasta com .gitkeep) ====
+/public/pro/logs/*
+!/public/pro/logs/.gitkeep
+
+/public/pro/cache/*
+!/public/pro/cache/.gitkeep
+
+/public/pro/uploads/*
+!/public/pro/uploads/.gitkeep
+
+# ==== Dependências / builds ====
+/vendor/            # Composer (se usar Composer)
+/composer.phar
+
+/node_modules/      # Se tiver front-end
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+/dist/
+/build/
+
+# ==== Dumps de banco / arquivos sensíveis ====
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+*.pem
+*.key
+
+# ==== Arquivos de sistema/IDE ====
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+*.bak
+*.tmp
+*.log
+
+# ==== Arquivos compactados (para evitar subir pacotes acidentalmente) ====
+*.zip
+*.tar
+*.gz
+*.bz2
+*.7z

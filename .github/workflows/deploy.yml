@@ -1,0 +1,47 @@
+name: Deploy via FTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ftp-deploy:
+    name: Deploy do site via FTP
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Isso é necessário para obter o histórico completo para diff
+
+      - name: Enviar arquivos via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_23GC }}
+          username: ${{ secrets.FTP_23GC_USERNAME }}
+          password: ${{ secrets.FTP_23GC_PASSWORD }}
+          server-dir: pro/
+          protocol: ftp
+          dry-run: false
+          dangerous-clean-slate: false  # Importante manter como false para segurança
+          exclude: |
+            .git
+            .git/**
+            .gitignore
+            .gitattributes
+            .github/**
+            **/*.Zone.Identifier
+            node_modules/
+            README.md
+            back/ 
+            readme.md
+            .gitignore
+            .gitattributes
+            .editorconfig
+            .env*
+            *.log
+            *.tmp
+            *.bak
+            *.swp

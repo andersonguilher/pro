@@ -1,0 +1,18 @@
+# public/pro/.htaccess
+
+# Desabilitar listagem de diretórios
+Options -Indexes
+
+# Bloquear acesso a arquivos sensíveis
+<Files ".env">
+  Require all denied
+</Files>
+
+<FilesMatch "^(composer\.(json|lock)|env\.php|conexao\.php)$">
+  Require all denied
+</FilesMatch>
+
+# (Opcional) bloquear dumps e pacotes deixados no servidor
+<FilesMatch "\.(sql|sqlite|zip|tar|gz|bz2)$">
+  Require all denied
+</FilesMatch>
